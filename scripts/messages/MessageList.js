@@ -23,17 +23,31 @@ const render = messageArray => {
     contentTarget.innerHTML = combinedSections
 }
 
-/*
-    Color the messages when one of the buttons in the ThemeButtons
-    component is clicked.
-*/
-document.querySelector(".themes").addEventListener("click", e => {
-    const idOfClickedElement = e.target.id
 
-    if (idOfClickedElement.startsWith("themeButton--")) {
-        const [prefix, color] = idOfClickedElement.split("--")
-        contentTarget.classList = []
-        contentTarget.classList.add(color)
-    }
+// /*
+//     Color the messages when one of the buttons in the ThemeButtons
+//     component is clicked.
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("colorChosen", event => {
+    const color = event.detail.color
+
+    contentTarget.classList = []
+    contentTarget.classList.add(color)
+
 })
+
+
+
+
+// document.querySelector(".themes").addEventListener("click", e => {
+//     const idOfClickedElement = e.target.id
+
+//     if (idOfClickedElement.startsWith("themeButton--")) {
+//         const [prefix, color] = idOfClickedElement.split("--")
+//         contentTarget.classList = []
+//         contentTarget.classList.add(color)
+//     }
+// })
 
